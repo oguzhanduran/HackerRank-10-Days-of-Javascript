@@ -196,6 +196,43 @@ function vowelsAndConsonants(s) {
 }
 }
 
+// Day 3: Arrays
+
+// First Method
+
+function getSecondLargest(nums) {
+    // Complete the function
+    nums = new Set(nums);
+    nums = Array.from(nums); // set'ten yeni bir array elde etmemize izin verir.
+    nums.sort(comparator); 
+    return nums[nums.length - 2] // -2 dememizin nedeni array'de 0 ve 1. indexte 6 sayısı olması
+}
+
+function comparator(a,b) {
+    return a-b; // Küçükten büyüğe doğru sıraladık | b-a deseydik büyükten küçüğe sıralamış olurduk.
+    } 
+
+// Second Method
+
+function getSecondLargest(nums) {
+    let largest = nums[0];
+    let secondLargest = nums[0];
+    
+    for (let i = 1; i < nums.length; i++) { //Bu döngünün amacı en büyük sayıyı bulmak.
+        if (nums[i] > largest) {
+            secondLargest = largest;
+            largest = nums[i];
+            continue;
+        }
+        
+        if ((nums[i] > secondLargest) && (nums[i] < largest)) { // Bu döngünün amacı ise en büyük sayıyı kullanarak en büyük ikinci sayıyı bulmak.
+            secondLargest = nums[i];
+        }
+    }
+    
+    return secondLargest;
+}
+
 
 
 
