@@ -10,6 +10,7 @@ function greeting(parameterVariable) {
      
     
 }
+//*******************************************************************************************************************/
 
 
 
@@ -23,6 +24,8 @@ console.log(firstDecimal + Number(secondDecimal));
 
 // Write code that uses console.log to print the concatenation of 'firstString' and 'secondString' on a new line. The        variable 'firstString' must be printed first.
 console.log(firstString  + secondString);
+//*******************************************************************************************************************/
+
 
 
 
@@ -42,6 +45,10 @@ function getPerimeter(length, width) {
     return perimeter;
     
 }
+//*******************************************************************************************************************/
+
+
+
 
 // Day 1: Functions
 
@@ -63,10 +70,12 @@ function factorial(n) {
         }
         return finalValue; // Döngü tamamlandıktan sonra return ile finalValue değerini dışarı veriyor.
     } 
+//*******************************************************************************************************************/
 
 
 
-    //Day 1: Let and Const
+
+//Day 1: Let and Const
 
     function main() {
         
@@ -79,10 +88,12 @@ function factorial(n) {
         
         // Print the perimeter of the circle:
         console.log(2 * PI * input)
+//*******************************************************************************************************************/
 
 
 
-    // Day 2: Conditional Statements: If-Else
+
+// Day 2: Conditional Statements: If-Else
 
     function getGrade(score) {
         let grade;
@@ -106,10 +117,11 @@ function factorial(n) {
         }
         return grade;
     }
-    
+ //*******************************************************************************************************************/
+   
 
 
-    // Day 2: Conditional Statements: Switch
+// Day 2: Conditional Statements: Switch
 
     // First Method
 
@@ -175,6 +187,8 @@ function factorial(n) {
     break;
 }
 return letter;
+//*******************************************************************************************************************/
+
 
 
 
@@ -195,6 +209,9 @@ function vowelsAndConsonants(s) {
 }
 }
 }
+//*******************************************************************************************************************/
+
+
 
 // Day 3: Arrays
 
@@ -205,7 +222,7 @@ function getSecondLargest(nums) {
     nums = new Set(nums);
     nums = Array.from(nums); // set'ten yeni bir array elde etmemize izin verir.
     nums.sort(comparator); 
-    return nums[nums.length - 2] // -2 dememizin nedeni array'de 0 ve 1. indexte 6 sayısı olması
+    return nums[nums.length - 2] // -2 dememizin nedeni array'de sondan 0 ve 1. indexte 6 sayısı olması
 }
 
 function comparator(a,b) {
@@ -232,6 +249,130 @@ function getSecondLargest(nums) {
     
     return secondLargest;
 }
+//*******************************************************************************************************************/
+
+
+
+
+// Day 3: Try, Catch, and Finally
+
+function reverseString(s) {
+    try {
+        s = s.split("").reverse().join("")  
+         
+  }catch(exception) { // exception burda temsili yani beklediğimiz hatayı temsil eder "error" da yazabilirdik
+        console.log("s.split is not a function");
+  
+  }finally {
+       console.log(s) 
+    }
+  
+}
+//try ve catch arasına çalışacak kodlar yazılır.
+
+//catch ile finally arasına hata yakalandığında çalışacak kodlar yazılır.
+
+//finally'den sonra ise try tamamlandıktan sonra hata olsada olmasada çalışacak kodlar yazılır.
+//*******************************************************************************************************************/
+
+
+
+
+// Day 3: Throw
+
+function isPositive(a) {
+    
+    if (a > 0 ) {
+        return "YES"
+    }else if(a === 0) {
+        throw Error("Zero Error")
+    }else if(a < 0 ) {
+        throw  Error("Negative Error")
+    }
+  }
+
+// Burda throw'u özel bir hatayı belirtmek için kullandık. Yani biz bir duruma özel bir hata oluşturmak istiyorsak throw kullanabiliriz.
+//*******************************************************************************************************************/
+
+
+
+
+//Day 4: Create a Rectangle Object
+
+//Method 1
+
+function Rectangle(a, b) {
+    return {
+        length: a,
+        width: b,
+        perimeter: 2*(a + b),
+        area: a*b 
+    }
+}
+
+// Bizden bir obje oluşturup içersine istenen özellikleri atamamızı istedi, sonrasındada return ile oluşturduğumuz bilgileri geri döncez.
+
+// Objelerde dikkat edilmesi gerekenler: Objenin içindeki özellikler veya methodlar virgül ile ayrılması gerekir ve son olusturulan özellikten sonra virgul konmaz.
+
+// Unutma her fonksiyon bir nesnedir.
+//*******************************************************************************************************************/
+
+
+
+
+// Day 4: Count Objects
+
+function getCount(objects) {
+    let counter = 0;
+    
+    for(let i= 0; i< objects.length; i++) { 
+        if (objects[i].x == objects[i].y) { 
+           counter++; 
+        }
+      } 
+      return counter;
+   }
+
+   //objects[i].x -> object parametresinin içindeki x değerinin i. index değeri demek.
+//*******************************************************************************************************************/
+
+
+
+
+// Day 4: Classes
+
+// Bazen kullanabileceğimiz herhangi bir standart var mı diye merak ederiz aynı nesneyi üretmekten emin olmak için, manuel olarak tekrar ve tekrar yazmamak için.
+// Bizden aşağıdaki property'leri içeren bir polygon class'ı olusturmamızı istedi.
+//Çokgenin kenarlarının uzunluklarını tanımlayan bir dizi tam sayı değeri alan bir constructor tanımlamalıyız.
+//Çokgenin çevresini return eden bir perimeter yöntemi tanımlamalıyız.
+
+class Polygon { // Biz burda polygon classı olusturarak bütün çokgenler için bu işlemi yapabilir hale geldik. Hepsi için ayrı ayrı uğraşmıcaz.
+
+    constructor(sides) {
+        this.sides = sides; // Bir dizi tam sayı değerini almak için sides parametresini kullanarak sides property'sini olusturduk.
+
+    }
+
+    perimeter() { // perimeter methoduyla girilen sayıları topluyoruz.
+    let sum = 0;
+    for(let i=0; i< this.sides.length; i++) {
+        sum = sum + this.sides[i]
+    }
+    return sum; 
+    }
+}
+//Burda this'i sides parametresini ne ile eşitlemek istiyorsan onunla eşitlemek için kullandık.
+// Perimeter methodda herhangi bir sey girmeme gerek yok, çünkü input property'nin kendisinde.
+//*******************************************************************************************************************/
+
+
+
+
+//Day 5: Inheritance
+
+
+
+
 
 
 
