@@ -370,6 +370,8 @@ class Polygon { // Biz burda polygon classı olusturarak bütün çokgenler içi
 
 //Day 5: Inheritance
 
+console.log("inheritance")
+
 
 
 
