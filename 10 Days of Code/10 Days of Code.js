@@ -370,8 +370,98 @@ class Polygon { // Biz burda polygon classı olusturarak bütün çokgenler içi
 
 //Day 5: Inheritance
 
-console.log("inheritance")
+/*
+ *  Write code that adds an 'area' method to the Rectangle class' prototype
+ */
+Rectangle.prototype.area = function() {
+    return this.h * this.w
+}
+   
+ // Reçeteli nesne üretmenin 2 yolu var biri prototype ikincisi new biz prototype ile Renctangle class'ına bir area methodu ekledik.   
+      
+/*
+ * Create a Square class that inherits from Rectangle and implement its class constructor
+ */
 
+class Square extends Rectangle {
+    constructor(w) {
+        super(w,w)
+    }
+}
+
+// extends ile Rectangle class'ının inheritance'ı yani mirascısı olan yani bütün özelliklerini alan Square class'ını olusturduk. 
+
+// Burdaki rectangle superClass Square ise Subclass olarak tanımlanır. 
+// Constructor ile subclassımıza superclass'ımızda olan nesnemizi atadık.
+// super(w,w) diyerek sen git bunları super class'tan al ve superClass'ın methodunu uygula dedik.
+
+//*******************************************************************************************************************/
+
+// Day 5: Template Literals
+
+function sides(literals, ...expressions) {
+    let Area = expressions[0] // expressions'ın içinde tanımlı olan ifadeleri Area ve Perimeter olarak tanımladık.
+    let Perimeter = expressions[1]
+    let s1 = (Perimeter + islem(Area, Perimeter)) / 4
+    let s2 = (Perimeter - islem(Area, Perimeter)) / 4
+    return [s2, s1] // s2 ve s1 değerlerini küçükten büyüğe doğru sıralamamızı istiyor.
+}
+ function islem(Area, Perimeter) { // Area ve Perimeter parametrelerini kullanarak s1 ve s2 için ortak olan islemin fonksiyonunu olusturduk.
+     return Math.sqrt(Math.pow(Perimeter,2)-(16 * Area))
+ }
+ 
+ //*******************************************************************************************************************/
+
+ //Day 5: Arrow Functions
+ 
+ // Method 1
+
+ function modifyArray(nums) {
+    let Array1 = function(n) {
+        if(n % 2 == 0) 
+        return n * 2 // tek işlem yaptığımız için süslü parantezin içine almadık.
+        else 
+        return n * 3
+     }
+     let Array2 = nums.map(Array1); // Bunun anlamı, nums dizisinin içindeki bilgileri al ve Array1 değişkenine ata ve map fonksiyonu yardımıyla Array1'e atadığın fonksiyonu kullanarak yeni bir Array2 dizisi elde et.
+     return Array2
+}
+
+// map() fonksiyonunun olayı dizinin içindeki tüm elemanları tek tek döndürüp mevcut diziyi değiştirmeden yeni bir dizi elde etmek.
+
+// Method 2
+// Bu methodda arrow function ve ternary operator kullanalım.
+
+function modifyArray(nums) {
+    let Array1 = n => (n % 2 == 0) ? n * 2: n * 3 
+    let Array2 = nums.map(Array1)
+    return Array2
+}
+
+// arrow function kullanımında Array1 fonksiyonun ismi n ise paremetresidir.
+// Ternary operator kullanımında kısaca n 2'ye bölünürse 2 ile bölünmezse 3 ile çarp dedik. Yani kısa if else gibi düşünebiliriz.
+
+//Day 6: Bitwise Operators
+
+// Önce soruyu anlayalım. Soruda verilen n değerini (1, 2, 3 ...n) şeklinde yazmamızı ve bu değerleri n'e kadar a < b olacak şekilde yazmamızı istiyor.
+// Örneğin n = 3 için sol taraftakiler a'yı sağ taraftakiler b'yi temsil edecek şekilde.
+// 1 - 2
+// 1 - 3 
+// 2 - 3 
+// Yazmanızı istiyor.
+// yukardaki sayıları 3'lü sistemde yazacağız çünkü q=3 sonrasında ise ve operatörü ile birleştircez.
+
+// Örneğin 1 - 2 için 001 & 010 = 000 sonucu çıkıyor. Anlamadıysan ve operatörünün özelliklerini incele.
+
+// Sonrasında ise çıkan sonucun k değerinden küçük olmasını istiyor. 
+// Sorudaki tabloya baktığımızda n = 8 k = 5 için inceleyelim.
+// 5'den küçük en büyük değer 4'tür.
+
+// n = 2 k = 2 örneğine baktığımızda 2'den küçük en büyük değer 1 diye düşünebilirsiniz ama a ve b seklinde sıraladığımızda bunun 0 oldugunu görüyoruz çünkü n = 2.
+
+// 1 - 2 şeklinde oluyor sadece oda 001 & 010 = 000 yani 0'dır.
+
+// Geçelim Cevaba
 
 
 
