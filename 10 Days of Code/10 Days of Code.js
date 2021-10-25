@@ -449,7 +449,6 @@ function modifyArray(nums) {
 // 1 - 3 
 // 2 - 3 
 // Yazmanızı istiyor.
-// yukardaki sayıları 3'lü sistemde yazacağız çünkü q=3 sonrasında ise ve operatörü ile birleştircez.
 
 // Örneğin 1 - 2 için 001 & 010 = 000 sonucu çıkıyor. Anlamadıysan ve operatörünün özelliklerini incele.
 
@@ -462,6 +461,103 @@ function modifyArray(nums) {
 // 1 - 2 şeklinde oluyor sadece oda 001 & 010 = 000 yani 0'dır.
 
 // Geçelim Cevaba
+
+function getMaxLessThanK(n, k) { // Hangi fonksiyonu olusturcağımızı öğrenmek için en alttaki satırı aç ve incele.
+        let max = 0;
+        for(let a = 1; a < n; a++) {
+            for(let b = a+1; b <= n; b++) { 
+                if((Number(a & b) < k) && (Number(a & b) > max)) {
+                    max = a & b;
+                }
+              }
+            }
+            return max;
+        }
+// İki farklı for döngüsü olusturarak tablodaki 1-2, 1-3, 1-4... şeklinde belirtilen a ve b sayılarını oluşturduk burda b sayısının a sayısından büyük olmasına dikkat. 
+
+// Sonrasında ise bizden istenen 2 farklı işlemi if döngüsü içersinde and operatörünü kullanarak oluşturduk.
+
+ //******************************************************************************************************************/
+
+ 
+// Day 6: JavaScript Dates
+
+// Method 1
+
+function getDayName(dateString) {
+    let dates = new Date(dateString)
+    let dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    let dayName = dayNames[dates.getDay()]
+    return dayName;
+    }
+
+// JavaScript'te Gün atamasını new Date() ile yapıyoruz. 
+// new Date() methodunu uygulayarak input'u dates değişkenine atadık.
+// getDay() methodu belirtilen tarihin gün olarak sıramasını 0'dan başlayarak 6'ya kadar veriyor örneğin verilen tarih Pazartesi gününe denk geliyorsa çıktımız 1 oluyor. 
+
+// Method 2
+
+function getDayName(dateString) {
+    let dayName;
+    // Write your code here
+    let dates = new Date(dateString)
+    switch(dates.getDay()) {
+        case 0 : dayName = "Sunday"; break;
+        case 1 : dayName = "Monday"; break;
+        case 2 : dayName = "Tuesday"; break;
+        case 3 : dayName = "Wednesday"; break;
+        case 4 : dayName = "Thursday"; break;
+        case 5 : dayName = "Friday"; break;
+        case 6 : dayName = "Saturday"; break;
+    }
+    return dayName;
+}
+
+// Day 7: Regular Expressions I
+
+// Konu ile ilgili detaylı bilgiye Github -> JavaScript Konu Anlatımı -> Yeni Konular -> 3-Regular-Expressions-Regex-(Düzenli-ifadeler) başlıklarını takip ederek ulaşabilirsiniz.
+
+// Regex ifadeleri her zaman iki eğik çizgi "/Regex ifadeleri/" arasında belirtilir.
+
+// Method 1
+
+function regexVar(str) {
+        let re = /^([aeiou]).+\1$/;
+        return re;
+    }
+
+// ^ ifade ile satır başını şeçer.
+
+// () Şeçtiğimiz satır başında parantez kullanılarak parantezin içersinde eşleşen değer varsa saklanır.
+
+// [] Köşeli parantez bizim bir aralık belirlememizi sağlar. Yani biz ^([aeiou]) diyerek satırın başında aeiou harflerinden biri var mı bak varsa seç demiş oluyoruz.
+
+// Sonrasında ise .+ kullanarak . ile seçtiğimiz tüm karekterleri + ile birleşitiriyoruz. 
+
+// \1 biraz önce ilk seçeceğimiz aeiou elemanlarının aynısından  bir tane daha varsa aralığı şeç demek. Yani a ile  baslıyorsa gene a olması lazım veya aeiou elemanları değilde 9 deseydik "987529" tamamını  secerdi. Ama regular expression ifadesini bu sekilde bırakırsak sıkıntı yasarız cunku "assdsdasds"  assdsda yı şeçer fakat biz baştaki ve sondakini seçmesini istiyoruz. Bu yüzden sonuna $ isaretini ekledik. Yani baştaki harf ile sondaki harf eşleşirse seç demiş olduk.
+
+// Method 2
+
+function regexVar() {
+    /*
+     * Declare a RegExp object variable named 're'
+     * It must match a string that starts and ends with the same vowel (i.e., {a, e, i, o, u})
+     */
+    
+let re = /^(a|e|i|o|u).+\1$/ // Köşeli parantez'in yerine veya operatörünü kullanarak ayırdık.
+    /*
+     * Do not remove the return statement
+     */
+    return re;
+}
+
+
+
+
+
+
+
+
 
 
 
