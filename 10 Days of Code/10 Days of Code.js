@@ -513,6 +513,8 @@ function getDayName(dateString) {
     return dayName;
 }
 
+ //******************************************************************************************************************/
+
 // Day 7: Regular Expressions I
 
 // Konu ile ilgili detaylı bilgiye Github -> JavaScript Konu Anlatımı -> Yeni Konular -> 3-Regular-Expressions-Regex-(Düzenli-ifadeler) başlıklarını takip ederek ulaşabilirsiniz.
@@ -551,15 +553,120 @@ let re = /^(a|e|i|o|u).+\1$/ // Köşeli parantez'in yerine veya operatörünü 
     return re;
 }
 
+ //******************************************************************************************************************/
+
+// Day 7: Regular Expressions II
+
+function regexVar() {
+    /*
+     * Declare a RegExp object variable named 're'
+     * It must match a string that starts with 'Mr.', 'Mrs.', 'Ms.', 'Dr.', or 'Er.', 
+     * followed by one or more letters.
+     */
+    
+    let re = /^(Mr|Mrs|Ms|Dr|Er)(\.)([a-zA-Z])+$/
+    /*
+     * Do not remove the return statement
+     */
+    return re;
+}
+ 
+// Burda belki sondaki +$ ifadesi anlaşılmayabilir. 
+// + ifadesini koymasaydık sadece ön ek ve noktadan sonraki ilk harfi seçerdi melela "Mr.Duran" da seçilen kısım Mr.D olurdu.
+
+// +'nın yanına $ koymamızın nedeni ise içerde alfanümerik kelime varsa seçmesini engellemek yani "Mr.Duran123" oldugunda $ koymazsak Mr.Duran'ı seçer biz bunu istemiyoruz biz hiç bir karekteri seçmemesini istiyoruz.  Bu yüzden sondaki karekterler a-zA-Z ise seç anlamında $ işaretini kullandık.
+
+ //******************************************************************************************************************/
+
+ // Day 7: Regular Expressions III
+
+ // Method 1
+
+ function regexVar() {
+    /*
+     * Declare a RegExp object variable named 're'
+     * It must match ALL occurrences of numbers in a string.
+     */
+    let re =  /\d+/g;
+    
+    /*
+     * Do not remove the return statement
+     */
+    return re;
+}
+ 
+// \d dememizin nedeni tüm digitleri yani rakamları seçmesini istememiz. 
+
+// + koymamızın nededi ise istenilen rakamları birleşik halde seçmesini istememiz yani + koymasaydık 102 sayısını 1 0 2 şeklinde ayrı ayrı seçerdi.
+
+// Bu soruda belki en önemli kısım global flag kullanımı. /g kullanımının nedeni global flag tüm yazının dikkate alınmasını sağlıyor yani olmadıgında yazının eşlesen ilk kısmını alıyor sadece. Global flag olmasaydı, çıktı sadece 102 olurdu.
+
+// Bir diğer önemli nokta flagler her zaman eğik çizgilerin dışına koyulur. Dikkat!!!
+
+ // Method 2
+
+ let re =  /[0-9]+/g; // Bu şekilde aralık belirleyerek de sonuca gidebilirdik.
+
+  //*****************************************************************************************************************/
+
+ // Day 8: Create a Button
+
+ // Dikkat!!! id'yi btn yapmanı istiyor, farklı bir id yazma yoksa benim gibi 1 saat farklı farklı yollardan çözmeyi denersin :)
+
+ // CSS
+//  #btn {
+//     width: 96px;
+//     height: 48px;
+//     font-size: 24px;
+// }
+
+// HTML
+
+// <!DOCTYPE html>
+// <html>
+//     <head>
+//         <link rel="stylesheet" href="css/button.css" type="text/css">
+//         <meta charset="utf-8">
+//         <title>Button</title>
+        
+//     </head>
+//     <body>
+//         <button type="button" id="btn" >0</button>
+//         <script src="js/button.js" type="text/javascript"></script>
+//     </body>
+// </html>
 
 
 
+// Method 1
 
+// JavaScript
+  /* This assigns the element with id 'buttonId' to 'btn' */
+  var btnDOM = document.getElementById("btn");
+  let counter = 0;
+  /* This sets the action to perform on a click event */
+  btnDOM.addEventListener("click", function() {
+      /* This changes the button's label */
+      counter = counter + 1;
+      btnDOM.innerHTML = counter;
+  });
 
+  // getElementById ile ekrandaki butona ulaşıp onu btnDOM'a atadık.
+  //addEventListener fonksiyonunu eklediğiniz HTML elementlerine olay dinleyicisi ekler. Yani kullanıcı sayfada herhangi bir işlem yaptığında(click vb.) istediğimiz aksiyonları alabilmemizi sağlar.
+  // click event'ini de ekleyerek butona her bastığımızda yazdığımız fonksiyonu yaptırdık.
+  // innerHTML ile değişen counter değerini btnDOM değişkeni üzerinden butona yazdırdık.
 
+// Method 2
+  var buttonCounter = document.getElementById('btn');
+  buttonCounter.addEventListener('click', function() {
+    buttonCounter.innerHTML = +(buttonCounter.innerHTML) + 1;
+});
 
+// Method 3
 
+<button type="button" id="btn" onclick="this.innerHTML++" >0</button> // direk HTML sayfasının içine yazarak da sonuca ulaşabiliriz.
 
+  //*****************************************************************************************************************/
 
 
 
