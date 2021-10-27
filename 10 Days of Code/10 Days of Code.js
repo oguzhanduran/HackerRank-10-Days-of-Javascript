@@ -668,16 +668,94 @@ function regexVar() {
 
   //*****************************************************************************************************************/
 
+  // Day 8: Buttons Container
+
+//   HTML
+
+//   <!DOCTYPE html>
+//   <html>
+//       <head>
+//           <link rel="stylesheet" href="css/buttonsGrid.css" type="text/css">
+//           <meta charset="utf-8">
+//           <title>Buttons Grid</title>
+//       </head>
+//       <body>
+//            <div id="btns" class="btnContainer">
+//               <button id="btn1" class="btn">1</button>
+//               <button id="btn2" class="btn">2</button>
+//               <button id="btn3" class="btn">3</button>
+//               <button id="btn4" class="btn">4</button>
+//               <button id="btn5" class="btn">5</button>
+//               <button id="btn6" class="btn">6</button>
+//               <button id="btn7" class="btn">7</button>
+//               <button id="btn8" class="btn">8</button>
+//               <button id="btn9" class="btn">9</button>
+//           </div>
+//           <script src="js/buttonsGrid.js" type="text/javascript"></script>
+//       </body>
+//   </html>
+  
+
+//   CSS
+
+//   .btnContainer {
+//     width: 75%;
+// }
+
+// .btn {
+//    width: 30%;
+//    height: 48px;
+//    font-size: 24px;
+// }
 
 
+// JS
+const ids = [1, 2, 3, 6, 9, 8, 7, 4]; //  Sayıların 1'den başlayıp saat yönünde yazılmış ilk hali.
+let nums = [1, 2, 3, 6, 9, 8, 7, 4]; // saat yönünde döndür.
+let btn5DOM = document.getElementById("btn5");
+btn5DOM.onclick = function() {
+  nums.unshift(nums.pop());
+  for (i = 0; i < 8; i++) {
+    document.getElementById("btn" + ids[i]).innerHTML = nums[i];
+  }
+};
 
+// // pop() Metodu
 
+// pop() metodu dizinin son elemanını siler ve dizinin yapısını değiştirir. Aynı zamanda da diziden silinen elemanı döndürür.
 
+let array = ["1", "2", "3"]
+let silinenArray = array.pop() 
+console.log(silinenArray) // "3"
+console.log(array) // "1" "2"
 
+// unshift() Metodu 
 
+//  Javascript de dizilerin başına eleman ya da elemanlar eklemek için unshift() metodunu kullanıyoruz. Metot diziye eleman ya da elemanlar eklerken dizinin yapısını değiştirir. push() metodu ile de sonuna ekleriz.
+let dizi = ["6", "7", "8"]
+dizi.unshift("5")
+console.log(dizi) // ["5","6","7","8"]
 
+// Yani nums.unshift(nums.pop()); bu ifade ile sondaki elemanı alıp başa eklemiş olduk. 
+//[4,1,2,3,6,9,8,7] bu hale getirdik.
+
+// yani biz 5'e basınca nums değişkeni değişti ve şöyle oldu -> nums = [4,1,2,3,6,9,8,7]  
+
+// Şimdi döngüye sokalım. 
+btn1 = nums[0] = 4
+btn2 = nums[1] = 1
+btn3 = nums[2] = 2
+btn6 = nums[3] = 3
+btn9 = nums[4] = 6
+btn8 = nums[5] = 9
+btn7 = nums[6] = 8
+btn4 = nums[7] = 7
     
+// Bu şekilde yukarda değiştirdiğimiz nums değerini, id numarası üzerinden butonlarda gözükmesini sağladık.
 
+// Ve bu döngü her 5'e tıkladığımızda benzer şekilde devam eder.
+
+  //*****************************************************************************************************************/
 
 
 
