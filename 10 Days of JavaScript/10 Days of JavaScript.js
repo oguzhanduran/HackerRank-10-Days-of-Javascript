@@ -1,3 +1,10 @@
+ //10 Days of JavaScript
+ 
+ // Tüm soruları gerek farklı kaynaklardan yararlanarak gerek kendim çözerek sizin için açıklamaya çalıştım.
+  
+ // Yararlı olması dileğiyle :)
+
+
 // Day 0: Hello, World!
 
 function greeting(parameterVariable) {
@@ -770,9 +777,9 @@ btn4 = nums[7] = 7
 //     </head>
 //     <body>
         
-//         <div id="res"></div>
+//         <div id="res"></div> // Bu ekran yani üzerine tıklamıyoruz o yüzden ayrı bir div içersinde yazdık.
 //         <div id="btns">
-//             <button id="btn0" onclick="clickZero()">0</button>
+//             <button id="btn0" onclick="clickZero()">0</button> // üzerine tıklandığımda clickZero fonksiyonu çalıssın dedik.
 //             <button id="btn1" onclick="clickOne()">1</button>
 //             <button id="btnClr" onclick="clickClear()">C</button>
 //             <button id="btnEql" onclick="clickEql()">=</button>
@@ -791,19 +798,27 @@ btn4 = nums[7] = 7
 
 // CSS
 
-// body{
+// body{  
 //     width:33%;
 // }
+
+// Body komple hesap makinesinin kapladığı yeri ayarlamak için kullandık.
+
 // #res{
 //     background-color:lightgray;
 //     border:solid;
 //     height:48px;
 //     font-size:20px;
 // }
+
+// res hesap makinesin ekran boyutunu ayarlamak için kullandık. 
+
 // #btn0,#btn1{
 //     background-color:lightgreen; 
 //     color:brown;
 // }
+
+// Dikkat!!! Aynı stili vermek istediğimiz id'leri virgül ile birleştirerek ortak bir stil verebiliriz.
 
 // #btnClr,#btnEql{
 //        background-color:darkgreen; 
@@ -835,6 +850,7 @@ function clickZero()
     
     resultScreen.innerHTML+="0";
 }
+// clicZero fonksiyonuyla, 0 butonuna bastıkça ekrana 0 ekle dedik. 
 function clickOne()
 {
     
@@ -846,6 +862,10 @@ function clickSum()
     result=parseInt(resultScreen.innerHTML,2);
     resultScreen.innerHTML+="+";
 }
+
+// parseInt() ile fonksiyona girdiğiniz ikinci parametre ile dönüştürmek istediğiniz sayı sistemine dönüşüm yaptırabilirsiniz.
+// örneğin, console.log(parseInt("10110", 2)) // 22, yani 10110 sayısının 2'li sistemdeki onluk karşılığı 22'dir. parseInt("a",b) a parametresi string veya sayı olabilir.
+
 function clickSub()
 {
      operatorSeq="-";
@@ -869,10 +889,11 @@ function clickEql()
   if(operatorSeq=='+')
       {
            var i =(resultScreen.innerHTML).indexOf("+");
-   
+   // indexOf ile + işaretinin index numarası tespit edilip i değişkenine atandı.
          var operand2=parseInt((resultScreen.innerHTML).substr(i+1),2);
           ans =result+operand2;
       }
+      //substr(i+1) dememizin nedeni operatörden sonraki sayıyı alabilmek için.
     else if(operatorSeq=='-')
     
     {
@@ -899,11 +920,14 @@ function clickEql()
    
     resultScreen.innerHTML=ans.toString(2);
 }
+// toString(2) ile birlikte parseInt ile 2'lik tabandan 10'luk tabana çevirdiğimiz sayıyı tekrar string halde 2'lik tabana geri çeviriyoruz.
 function clickClear()
 {
     resultScreen.innerHTML="";
     
 }
+
+//SON
 
 
 
